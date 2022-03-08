@@ -75,8 +75,8 @@ the appropriate place for that."
 
 (c-lang-defconst c-modifier-kwds
   cuda (append
-	(c-lang-const c-modifier-kwds)
-	'("__device__" "__global__" "__shared__" "__host__" "__constant__")))
+        (c-lang-const c-modifier-kwds)
+        '("__device__" "__global__" "__shared__" "__host__" "__constant__")))
 
 (c-lang-defconst c-other-op-syntax-tokens
   "List of the tokens made up of characters in the punctuation or
@@ -84,8 +84,8 @@ parenthesis syntax classes that have uses other than as expression
 operators."
   cuda
   (append '("#" "##"	; Used by cpp.
-	    "::" "..." "<<<" ">>>")
-	  (c-lang-const c-other-op-syntax-tokens)))
+            "::" "..." "<<<" ">>>")
+          (c-lang-const c-other-op-syntax-tokens)))
 
 (c-lang-defconst c-primary-expr-kwds
   "Keywords besides constants and operators that start primary expressions."
@@ -96,9 +96,9 @@ operators."
 contain type identifiers."
   cuda       nil
   (c c++) '(;; GCC extension.
-	    "__attribute__"
-	    ;; MSVC extension.
-	    "__declspec"))
+            "__attribute__"
+            ;; MSVC extension.
+            "__declspec"))
 
 (defconst cuda-builtins
   '(;; atom
@@ -285,7 +285,7 @@ Each list item should be a regexp matching a single identifier."
   "Syntax table used in cuda-mode buffers.")
 (or cuda-mode-syntax-table
     (setq cuda-mode-syntax-table
-	  (funcall (c-lang-const c-make-mode-syntax-table cuda))))
+          (funcall (c-lang-const c-make-mode-syntax-table cuda))))
 
 (defvar cuda-mode-abbrev-table nil
   "Abbreviation table used in cuda-mode buffers.")
@@ -298,8 +298,8 @@ Each list item should be a regexp matching a single identifier."
     ("while" "while" c-electric-continued-statement 0)))
 
 (defvar cuda-mode-map (let ((map (c-make-inherited-keymap)))
-			;; Add bindings which are only useful for CUDA
-			map)
+                        ;; Add bindings which are only useful for CUDA
+                        map)
   "Keymap used in cuda-mode buffers.")
 
 (easy-menu-define cuda-menu cuda-mode-map "CUDA Mode Commands"

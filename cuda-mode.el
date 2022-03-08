@@ -316,7 +316,7 @@ Each list item should be a regexp matching a single identifier."
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . cuda-mode))
 
 ;;;###autoload
-(defun cuda-mode ()
+(define-derived-mode cuda-mode prog-mode "CUDA"
   "Major mode for editing CUDA.
 Cuda is a C like language extension for mixed native/GPU coding
 created by NVIDIA
@@ -326,14 +326,10 @@ initialization, then `cuda-mode-hook'.
 
 Key bindings:
 \\{cuda-mode-map}"
-  (interactive)
   (kill-all-local-variables)
   (c-initialize-cc-mode t)
   (set-syntax-table cuda-mode-syntax-table)
-  (setq major-mode 'cuda-mode
-        mode-name "Cuda"
-        local-abbrev-table cuda-mode-abbrev-table
-        abbrev-mode t)
+  (setq local-abbrev-table cuda-mode-abbrev-table)
   (use-local-map c-mode-map)
   ;; `c-init-language-vars' is a macro that is expanded at compile
   ;; time to a large `setq' with all the language variables and their
@@ -346,7 +342,7 @@ Key bindings:
   ;; analysis and similar things working.
   (c-common-init 'cuda-mode)
   (easy-menu-add cuda-menu)
-  (run-hooks 'c-mode-common-hook)
+  (run-hooks 'c++-mode-hook)
   (run-hooks 'cuda-mode-hook)
   (setq font-lock-keywords-case-fold-search t)
   (c-update-modeline))

@@ -341,7 +341,6 @@ Key bindings:
   ;; only makes the necessary initialization to get the syntactic
   ;; analysis and similar things working.
   (c-common-init 'cuda-mode)
-  (easy-menu-add cuda-menu)
   (run-hooks 'c++-mode-hook)
   (run-hooks 'cuda-mode-hook)
   (setq font-lock-keywords-case-fold-search t)

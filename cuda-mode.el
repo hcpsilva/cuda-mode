@@ -326,7 +326,6 @@ initialization, then `cuda-mode-hook'.
 
 Key bindings:
 \\{cuda-mode-map}"
-  (kill-all-local-variables)
   (c-initialize-cc-mode t)
   (set-syntax-table cuda-mode-syntax-table)
   (setq local-abbrev-table cuda-mode-abbrev-table)
